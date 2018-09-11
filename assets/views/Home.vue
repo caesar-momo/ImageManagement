@@ -11,7 +11,7 @@ import Welcome from '@/components/Welcome';
 export default {
     name: 'AppHome',
     data:() => ({
-        gallery:[]
+        gallery:{}
     }),
     created: function(){
         let vm=this;

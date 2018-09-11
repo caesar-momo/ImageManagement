@@ -14,7 +14,7 @@
 <script>
 export default {
     props:{
-        gallery:[]
+        gallery:{}
     }
 }
 </script>
