@@ -1,0 +1,47 @@
+{
+    "extends": [
+        "airbnb",
+        "plugin:vue/essential"
+    ],
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "babel-eslint"
+    },
+    "rules": {
+        "max-len": ["error", { "code": 120 }],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "object-curly-newline": ["error", { "consistent": true }],
+        "no-param-reassign": ["error", {
+            "props": true,
+            "ignorePropertyModificationsFor": [
+                "acc", // for reduce accumulators
+                "accumulator", // for reduce accumulators
+                "e", // for e.returnvalue
+                "ctx", // for Koa routing
+                "req", // for Express requests
+                "request", // for Express requests
+                "res", // for Express responses
+                "response", // for Express responses
+                "$scope", // for Angular 1 scopes
+                "state" // for Vuex mutations
+            ]
+        }],
+        "import/extensions": ["always", { "ignorePackages": true }],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    },
+    "settings": {
+        "import/resolver": {
+            "babel-module": {
+                "extensions": [".js", ".vue"],
+                "alias": {
+                    "@": "./assets"
+                }
+            }
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    }
+}
