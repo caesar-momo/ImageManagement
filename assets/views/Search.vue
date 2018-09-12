@@ -2,12 +2,11 @@
     <div>
         <router-link to="/">home</router-link>
         <h1>Search</h1>
-        <input type="text" v-model="search" placeholder="Search tags...">
+        <input type="text" v-model="search" placeholder="Search tags..." @keyup.13="Search_tag()">
+        <br>
         <label >Search title:</label>
-        <div v-html="Search_tag()">
-            <!-- <div v-for="img in result" :key="img.id">
-                <img :src="img.url" alt="">
-            </div> -->
+        <div v-for="img in search_result" :key="img.id">
+            <img :src="img.url" alt="">
         </div>
     </div>
 </template>
@@ -20,7 +19,7 @@ export default {
         return{
             gallery:{},
             search:"",
-            result:[{}]
+            search_result:{}
         }
     },
     created(){
@@ -28,7 +27,7 @@ export default {
     },
     methods:{
         Search_tag(){
-            this.result=[{}];
+            this.search_result={};
             if(!this.search){
                 return "no result";
             }
@@ -42,12 +41,11 @@ export default {
                 })
             }
             if(second.indexOf(key)>-1){
-                this.gallery[1].photos.map(function(cur){
-                    url_array.push(cur);
+                this.gallery[1].photos.map(function(cur1){
+                    url_array.push(cur1);
                 })
             }
-            console.log(url_array);
-            this.result.concat(url_array);
+            this.search_result=url_array;
         }
     }
 }

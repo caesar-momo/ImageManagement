@@ -17,7 +17,6 @@ export default {
         let vm=this;
         fetch('http://www.mocky.io/v2/5aea2be330000061005db34d?mocky-delay=400ms').then((response) => {
             return response.json().then((json) => {
-                // console.log("JSON",json)
                 vm.gallery=json.data;
             })
         })
